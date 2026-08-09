@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <title>It is about time HTML, CSS and JavaScript became obsolete | EffinDOM</title>
-    <meta name="description" content="Why custom HTML5 controls become isolated UI systems, and why EffinDOM started by replacing the browser document UI stack before moving outward to native desktop.">
+    <title>HTML, CSS and JavaScript should have died years ago | EffinDOM</title>
+    <meta name="description" content="HTML keeps giving up, so we keep building private UI frameworks inside it. EffinDOM is my attempt to replace that mess rather than add another layer to it.">
     <link rel="canonical" href="https://effindom.dev/why-web-born/">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="It is about time HTML, CSS and JavaScript became obsolete">
-    <meta property="og:description" content="HTML can host a custom application surface. That does not make the surface part of one coherent UI system.">
+    <meta property="og:title" content="HTML, CSS and JavaScript should have died years ago">
+    <meta property="og:description" content="HTML keeps giving up, so we keep building private UI frameworks inside it. EffinDOM is my attempt to replace that mess.">
     <meta property="og:url" content="https://effindom.dev/why-web-born/">
     <style>
       :root {
@@ -252,6 +252,12 @@
 
       .cta h2 { margin-top: 0; }
 
+      .disclosure {
+        margin-top: 3rem;
+        color: var(--muted);
+        font-size: 0.86rem !important;
+      }
+
       .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 
       .button {
@@ -306,8 +312,8 @@
       <section class="hero">
         <div class="shell">
           <p class="kicker">Founding article · EffinDOM</p>
-          <h1>It is about time HTML, CSS and JavaScript became obsolete.</h1>
-          <p class="standfirst">HTML can host a custom application surface. That does not make the surface part of one coherent UI system. EffinDOM is an attempt to replace that application model, expose the result through FUI language SDKs, and make it work across browsers and native operating systems.</p>
+          <h1>HTML, CSS and JavaScript should have died years ago.</h1>
+          <p class="standfirst">We keep using a document format, a styling language and a scripting language as if they were one coherent application platform. They are not. EffinDOM is my attempt to replace the mess rather than add another abstraction on top of it.</p>
           <div class="byline">
             <span>By Zion Sati</span>
             <span>August 2026</span>
@@ -319,25 +325,31 @@
       <article>
         <div class="article-grid shell">
           <div class="copy">
-            <p>There is a point in many web applications where HTML quietly gives up.</p>
+            <p>I have wanted HTML, CSS and JavaScript gone as the application platform since before WebAssembly had a name.</p>
 
-            <p>A workflow graph is a good example. So is a timeline, waveform editor, diagram surface, node editor, game, or sufficiently ambitious text editor. The page around it is still HTML. The interesting part becomes canvas, SVG, WebGL, or a private pile of absolutely positioned elements.</p>
+            <p>Not improved. Not hidden under another framework. Gone.</p>
 
-            <p>We call that progress because the thing is now visible. Then somebody tries to use it.</p>
+            <p>That sounds ridiculous because the web won. HTML is everywhere. JavaScript runs everywhere. There are millions of developers, libraries for everything and an answer on Stack Overflow for every way the stack can betray you.</p>
+
+            <p>But ubiquity does not turn three historical accidents into a coherent application model. It merely makes replacing them extremely difficult.</p>
+
+            <p>You can see the failure every time HTML quietly gives up. A workflow graph is a good example. So is a timeline, waveform editor, diagram surface, node editor, game, or sufficiently ambitious text editor. The page around it remains HTML. The interesting part becomes canvas, SVG, WebGL, or a private pile of absolutely positioned elements.</p>
+
+            <p>We declare victory because pixels appeared. Then somebody tries to use the thing.</p>
 
             <p>Does the mouse wheel scroll the page, pan the surface, or zoom it? Does trackpad pinch mean browser page zoom or graph zoom? What happens when a drag leaves the surface? Which layer owns pointer capture? Does keyboard focus enter it? Can a screen reader understand it? Does its hover state look remotely related to the application surrounding it?</p>
 
-            <p>The browser does not know. The custom control provider decides. Every provider decides differently.</p>
+            <p>The browser has no idea. The custom control provider decides, and every provider invents a different answer.</p>
 
             <blockquote>The custom surface has become a second UI system embedded inside the first one.</blockquote>
 
-            <p>This is why sophisticated HTML5 controls so often feel jarring even when they look polished. The problem is not that their authors forgot a CSS property. Their controls have no encompassing model of the application. Mouse handling, wheel momentum, pinch-to-zoom, touch arbitration, focus, selection, keyboard shortcuts, context menus and accessibility are rebuilt inside an island.</p>
+            <p>This is why sophisticated HTML5 controls so often feel wrong even when they look polished. The problem is not a missing CSS property. The control has no encompassing model of the application. Mouse handling, wheel momentum, pinch-to-zoom, touch arbitration, focus, selection, keyboard shortcuts, context menus and accessibility are rebuilt inside an island.</p>
 
             <p>It works. So does a lot of technical debt.</p>
 
             <h2>The hack inside the hack</h2>
 
-            <p>HTML is excellent at documents. It is also a practical way to build conventional forms. The web turned it into a general application platform because it was already everywhere, not because a document tree, a cascade and a scripting language formed a particularly coherent UI architecture.</p>
+            <p>HTML is excellent at documents. It is also a practical way to build conventional forms. We turned it into a general application platform because it was already everywhere, not because a document tree, a cascade and a scripting language somehow formed a brilliant UI architecture.</p>
 
             <p>When the document model runs out of vocabulary, the accepted answer is to insert a custom rendering surface and rebuild what is missing in JavaScript. That creates two owners for the same interaction:</p>
 
@@ -348,17 +360,19 @@
 
             <p>The boundary is where applications become uncanny. Wheel input is captured when the user meant to scroll. Pinch changes the wrong scale. A drag gets stuck because the release happened elsewhere. Keyboard commands work until focus crosses into the island. The graph is themed, but not really part of the theme.</p>
 
-            <p>None of this is impossible to fix. That is the important counterargument, and it is true. Pointer Events, <code>touch-action</code>, ARIA, hidden editors, DOM overlays and enough JavaScript can reproduce almost anything.</p>
+            <p>None of this is impossible to fix. Pointer Events, <code>touch-action</code>, ARIA, hidden editors, DOM overlays and a heroic quantity of JavaScript can reproduce almost anything.</p>
 
             <p>But once a custom widget has implemented all of that, it has built a small UI framework. The next widget builds another one.</p>
 
             <h2>A canvas is not a UI framework</h2>
 
-            <p>Replacing a page with one enormous canvas does not solve this. It merely makes the island larger.</p>
+            <p>Replacing the entire page with one enormous canvas does not solve anything. It merely makes the island larger.</p>
 
             <p>A canvas gives us pixels. It does not give us retained control identity, layout, focus, text editing, IME, selection, clipboard behavior, password-manager integration, browser find, semantics, accessibility, touch conventions, or platform-aware shortcuts.</p>
 
-            <p>EffinDOM exists to provide that missing application model. Canvas is one presentation surface used by the browser host. It is not the architecture.</p>
+            <p>This is where most canvas UI arguments go off the rails. A canvas is a framebuffer, not an application platform.</p>
+
+            <p>EffinDOM exists to provide the missing application model. Canvas is one presentation surface used by the browser host. It is not the architecture.</p>
 
             <p>The runtime owns one retained tree for layout, controls, rendering, input, text, selection, scrolling and semantics. It then projects the parts that the host platform must own. In the browser that includes a semantic DOM, mirrored editor state, IME integration and browser-facing behavior. On native desktop it includes the operating system accessibility and input adapters.</p>
 
@@ -380,15 +394,15 @@
         canvas + host       Metal · D3D12 · Vulkan</code></pre>
             </div>
 
-            <p>The goal is not to prevent platform-specific code. That would turn portability into a prison. The goal is to make the normal application path materially the same, then leave clean boundaries for capabilities that are genuinely platform-specific.</p>
+            <p>The goal is not to ban platform-specific code. That would turn portability into a prison, and I have no interest in replacing one prison with another. The normal application path should be materially the same. Genuinely platform-specific capabilities should remain available behind clean boundaries.</p>
 
             <h2>Why start with the browser?</h2>
 
-            <p>Most custom-rendered UI frameworks begin natively and later acquire a WebAssembly target. That is understandable. Native rendering is the easier environment to control.</p>
+            <p>Most custom-rendered UI frameworks begin natively and later acquire a WebAssembly target. That is perfectly understandable. Native is easier.</p>
 
             <p>EffinDOM went in the opposite direction.</p>
 
-            <p>The browser was the forcing function. A non-DOM UI that merely draws correctly is not a credible web application. It must participate in browser behavior:</p>
+            <p>I started in the browser precisely because it is harder. A non-DOM UI that merely draws correctly is not a credible web application. It has to participate in browser behaviour:</p>
 
             <ul>
               <li>Keyboard and touch text selection.</li>
@@ -401,39 +415,41 @@
               <li>Page zoom, trackpad gestures and nested scrolling.</li>
             </ul>
 
-            <p>Those requirements shaped the runtime before there was a native host. Once they worked, moving the same retained model to macOS, Windows and Linux was not trivial, but it was conceptually cleaner. The runtime already knew what the application meant. Native adapters had to connect that meaning to another host.</p>
+            <p>Those requirements shaped the runtime before there was a native host. Once they worked, moving the same retained model to macOS, Windows and Linux was still a lot of work, but the direction was clean. The runtime already knew what the application meant. Native adapters connected that meaning to another host.</p>
 
             <blockquote>EffinDOM is not a native framework with a canvas build. It was born on the web and ported outward.</blockquote>
 
             <h2>The hybrid route is still a hybrid</h2>
 
-            <p>Cross-platform UI has followed a progression rather like cars.</p>
+            <p>Cross-platform UI looks remarkably like the car industry.</p>
 
-            <p>Putting an HTML application inside Electron or a system WebView is the conventional hybrid approach. It gives the application a native body while carrying the browser drivetrain underneath. That is pragmatic, particularly when the existing web application and its ecosystem are worth more than the runtime architecture.</p>
+            <p>Putting an HTML application inside Electron or a system WebView is the conventional hybrid. It gives the application a native body while carrying the browser drivetrain underneath. It is pragmatic. It also makes every application drag a browser around so we can pretend a website became native.</p>
 
-            <p>There is an important middle ground. A framework can remove the WebView and render an HTML-oriented application model natively. That is a substantial engineering improvement. It is also the plug-in hybrid approach: replace part of the drivetrain while retaining the model designed around it. The application may no longer ship a browser, but its source concepts still begin with the document web and must be translated into another host.</p>
+            <p>There is a cleverer middle ground: remove the WebView and render an HTML-oriented application model natively. That is a substantial engineering achievement. It is also the plug-in hybrid. Part of the drivetrain changed, but the application still begins with a model designed for the document web and now needs translation into another host.</p>
 
-            <p>EffinDOM and FUI are the EV bet. They do not ask how to render HTML somewhere else. They ask what should replace HTML as the application platform, then make that retained control, text, input and semantic model work across host environments.</p>
+            <p>EffinDOM and FUI are the EV bet. I am not trying to work out how to render HTML somewhere else. I am asking what should replace it.</p>
 
             <p>The analogy also captures the uncomfortable part. HTML has had three decades to put petrol stations on every corner: component libraries, browser tooling, integrations, hosting, documentation, experienced developers and an answer for almost every failure.</p>
 
-            <p>The FUI ecosystem has a working drivetrain, but its charging network is young. The built-in controls, web and desktop hosts, packaging, official Agent Skills, documentation and access to ordinary language ecosystems cover a surprising amount. Third-party controls and integrations do not yet have three decades behind them. Early adopters will sometimes need to plan the route themselves.</p>
+            <p>FUI has a working drivetrain. Its charging network is young. Built-in controls, web and desktop hosts, packaging, official Agent Skills, documentation and access to ordinary language ecosystems cover a surprising amount. The third-party ecosystem does not have three decades behind it. Early adopters will occasionally need to plan the route themselves.</p>
 
-            <p>The long-term bet is that a useful platform creates its own infrastructure. More applications justify more controls and tooling. Better tooling makes the next application cheaper. Eventually the ecosystem develops gravity of its own.</p>
+            <p>That is the bet. A useful platform creates demand for more controls and tooling. Better tooling makes the next application cheaper. Eventually the ecosystem develops gravity of its own.</p>
 
             <h2>The control that made the claim real</h2>
 
-            <p>The hardest control was not a graph or a shader. It was <code>TextArea</code>.</p>
+            <p>The hardest control was not a graph, shader or some impressive GPU demo. It was the boring multiline text box everybody assumes an operating system simply gives you: <code>TextArea</code>.</p>
 
-            <p>Text editing exposes every shortcut a UI framework is tempted to take. Monospaced fonts, fixed line heights, wrapping, non-wrapping, visible-line processing, incremental edits and static content all deserve specialised fast paths. Every combination must still preserve Unicode boundaries, caret movement, forward and reverse selection, scrolling, hit testing, clipboard behavior, accessibility and font fallback.</p>
+            <p>Text editing exposes every shortcut a UI framework is tempted to take. Monospaced fonts, fixed line heights, wrapping, non-wrapping, visible-line processing, incremental edits and static content all deserve specialised fast paths. Then those paths combine. Every combination must still preserve Unicode boundaries, caret movement, forward and reverse selection, scrolling, hit testing, clipboard behaviour, accessibility and font fallback.</p>
 
-            <p>On the web, the visible editor is rendered by EffinDOM while mirrored DOM editor state remains synchronised for native IME and browser integration. Text inputs also need suitable semantics for password-manager extensions. A fast path that draws the right pixels but breaks composition or caret geometry is not a fast path. It is a bug with good frame time.</p>
+            <p>On the web, EffinDOM renders the visible editor while mirrored DOM editor state stays synchronised for IME and browser integration. Text inputs also need the right semantics for password-manager extensions. A fast path that draws the correct pixels but breaks composition or caret geometry is not an optimisation. It is a bug with good frame time.</p>
 
             <p>Find-on-page has the same character. The normal desktop shortcut opens EffinDOM's retained find experience. Browser-native find can search projected semantic text as well. Its highlight may use DOM font rendering that looks slightly different from the canvas text underneath. That is an honest host boundary, not a reason to pretend find does not exist.</p>
 
             <h2>Why retained FUI?</h2>
 
-            <p>FUI is the retained application model over the language-neutral EffinDOM runtime. FUI-RS exposes it to Rust; FUI-AS exposes the same controls and fluent conventions to AssemblyScript. Neither SDK rebuilds and diffs a logical UI tree on every state change.</p>
+            <p>I did not want another framework that repeatedly rebuilds a description of the UI so it can diff that description against the UI it already had. FUI uses retained controls. Construct the control once. Keep its identity. Change the property that changed.</p>
+
+            <p>FUI-RS exposes that model to Rust. FUI-AS exposes the same controls and fluent conventions to AssemblyScript. The syntax belongs to each language; the runtime beneath them is shared.</p>
 
             <p>A control keeps its identity. Focus, selection, editing state, scroll position, subscriptions and overlays remain attached to the thing the application created. Event handlers mutate the retained state they actually intend to change.</p>
 
@@ -459,13 +475,13 @@ fui_app!(FlexBox, build_page);</code></pre>
   ).fillSize().padding(24.0, 24.0, 24.0, 24.0);
 }</code></pre>
 
-            <p>The syntax belongs to each language; the application model does not change.</p>
+            <p>The application model does not change just because the language does.</p>
 
             <p>The C++ runtime underneath is deliberate. Rendering, layout, shaping, input and semantics are shared infrastructure for FUI-RS, FUI-AS and future language SDKs. A narrow ABI lets that runtime integrate with Skia, Yoga, HarfBuzz, ICU, SDL and native platform APIs without reimplementing the engine for every language.</p>
 
             <h2>What exists today</h2>
 
-            <p>EffinDOM currently runs in browsers through WebAssembly and on native macOS, Windows and Linux. FUI-RS covers both environments, including ARM64 and x64 for each desktop operating system. FUI-AS is currently a browser SDK. Native applications embed neither Chromium nor a system WebView.</p>
+            <p>This is no longer a renderer experiment. EffinDOM runs in browsers through WebAssembly and natively on macOS, Windows and Linux. FUI-RS covers both environments, including ARM64 and x64 for each desktop operating system. FUI-AS is currently a browser SDK. Native applications embed neither Chromium nor a system WebView.</p>
 
             <p>The same public application model covers retained controls, text editing, selection, IME, accessibility, touch interaction, custom drawing, remote UI assets, workers and themes. Routed universal projects can compile each browser route as an independent WASM micro-frontend while lazily composing the same retained page crates into one native shell.</p>
 
@@ -499,13 +515,15 @@ fui_app!(FlexBox, build_page);</code></pre>
 
             <h2>The point</h2>
 
-            <p>The web keeps proving that applications need more than documents. Our current answer is to place increasingly sophisticated private UI systems inside HTML and repair the seams one component at a time.</p>
+            <p>The web keeps proving that applications need more than documents. Our answer has been to place increasingly sophisticated private UI systems inside HTML and repair the seams one component at a time.</p>
 
-            <p>I do not think another layer of ad hoc JavaScript is the end state.</p>
+            <p>I refuse to believe another layer of JavaScript is the best civilisation can do.</p>
 
-            <p>EffinDOM is an attempt to replace the application UI model while retaining the browser and operating-system integration users expect. FUI-RS and FUI-AS are its first application surfaces. The ecosystem is already far enough along to build real applications, but early enough that users can still change its direction.</p>
+            <p>EffinDOM is my attempt to replace the application UI model without throwing away the browser and operating-system integration users expect. FUI-RS and FUI-AS are its first application surfaces. It is far enough along to build real applications and early enough that somebody using it can still change its direction.</p>
 
             <p>The first community application is <a href="https://github.com/jatm80/galaga-rs/">Galaga-RS</a>, a complete space shooter with a <a href="https://jatm80.github.io/galaga-rs/">live browser build</a>. That is one independent project, not an ecosystem. The next useful evidence is what somebody else tries to build and where the model fails them.</p>
+
+            <p class="disclosure">Disclosure: I used AI to help organise and edit this article. The argument, technical details, opinions and final approval are mine.</p>
 
             <div class="cta">
               <p class="section-number">Try the claim, not the pitch</p>
